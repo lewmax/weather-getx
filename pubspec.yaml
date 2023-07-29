@@ -1,0 +1,64 @@
+name: tesst
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.0
+  #State management
+  get: ^4.6.5
+  #Network
+  dio: ^5.1.2
+  json_annotation: ^4.8.1
+  sizer: ^2.0.15
+  geolocator: ^9.0.2
+  dart_code_metrics: ^5.7.4
+  dartz: ^0.10.1
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+  fonts:
+    - family: SFProDisplay
+      fonts:
+        - asset: fonts/SFProDisplay-Light.ttf
+          weight: 300
+        - asset: fonts/SFProDisplay-Regular.ttf
+          weight: 400
+        - asset: fonts/SFProDisplay-SemiBold.ttf
+          weight: 600
+        - asset: fonts/SFProDisplay-Bold.ttf
+          weight: 700
+
+#localization 
+#(1) install intl extension 
+#(2) 'Ctrl + S' to update intl.arb
+flutter_intl:
+  enabled: true
+
+#assets generator 
+#(1) 'dart pub global activate flutter_gen' 
+#(2) 'export PATH="$PATH":"$HOME/.pub-cache/bin"' 
+#(3) 'fluttergen -c pubspec.yaml' to generate
+flutter_gen:
+  output: lib/theme/

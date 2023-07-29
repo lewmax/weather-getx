@@ -1,0 +1,8 @@
+{
+    "cancel": "Cancel",
+    "navigate": "Navigate",
+    "locationPermissionDenied": "Location permission in denied",
+    "giveTheLocationPermission": "Please give the app permission to share your location for better performance",
+    "searchForCity":"Search for a city",
+    "":""
+}
