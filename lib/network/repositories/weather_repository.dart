@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../../models/dtos/weather_data_dto.dart';
 import '../../models/weather_data.dart';
 import '../api_constants.dart';
 import '../api_service.dart';
@@ -33,7 +34,8 @@ class WeatherRepository {
     try {
       final response = await _apiService.request(url, type: ApiRequestType.get);
       if (response.code == 200) {
-        final forecastData = ForecastData.fromJson(response.data);
+        final forecastDataDto = ForecastDataDto.fromJson(response.data);
+        final forecastData = forecastDataDto.toDomain();
 
         return right(forecastData);
       } else {

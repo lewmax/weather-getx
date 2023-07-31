@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../generated/l10n.dart';
-import '../../models/dtos/home_screen_args.dart';
+import '../../models/args/home_screen_args.dart';
 import '../../routes.dart';
 import '../../theme/colors.dart';
 import '../../theme/text_styles.dart';

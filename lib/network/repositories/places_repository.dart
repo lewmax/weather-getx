@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../models/city_info.dart';
+import '../../models/dtos/city_info_dto.dart';
 import '../api_constants.dart';
 import '../api_service.dart';
 import '../failures.dart';
@@ -10,7 +11,7 @@ class PlacesRepository {
 
   final ApiService _apiService;
 
-  Future<Either<Failure, List<CityInfo>>> fetchCities(String cityName) async {
+  Future<Either<Failure, List<CityInfo>>> searchCities(String cityName) async {
     final url =
         '${WeatherApiConstants.placesUrl}?city=$cityName&format=json&accept-language=en';
 
@@ -18,7 +19,8 @@ class PlacesRepository {
       final response = await _apiService.request(url, type: ApiRequestType.get);
       if (response.code == 200) {
         final List data = response.data;
-        final cities = data.map((e) => CityInfo.fromJson(e)).toList();
+        final cityDtos = data.map((e) => CityInfoDto.fromJson(e)).toList();
+        final cities = cityDtos.map((e) => e.toDomain()).toList();
 
         return right(cities);
       } else {
@@ -40,7 +42,8 @@ class PlacesRepository {
     try {
       final response = await _apiService.request(url, type: ApiRequestType.get);
       if (response.code == 200) {
-        final cityInfo = CityInfo.fromJson(response.data);
+        final cityInfoDto = CityInfoDto.fromJson(response.data);
+        final cityInfo = cityInfoDto.toDomain();
 
         return right(cityInfo);
       } else {

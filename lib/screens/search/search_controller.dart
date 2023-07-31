@@ -39,7 +39,7 @@ class SearchedController extends GetxController {
   Future<void> _search(String text) async {
     if (text.length < 3) return;
     searchInProgress.value = true;
-    final result = await _placesRepository.fetchCities(text);
+    final result = await _placesRepository.searchCities(text);
     searchInProgress.value = false;
     result.fold(
       (failure) => SnackbarUtils.error('Issue happened', 'Try again'),

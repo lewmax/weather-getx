@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
-import '../../models/dtos/home_screen_args.dart';
+import '../../models/args/home_screen_args.dart';
 import '../../models/weather_data.dart';
 import '../../network/repositories/weather_repository.dart';
 import '../../services/location_service.dart';
